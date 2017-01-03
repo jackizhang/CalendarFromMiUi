@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="solar_month">
+        <item >January</item>
+        <item >February</item>
+        <item >March</item>
+        <item >April</item>
+        <item >May</item>
+        <item >June</item>
+        <item >July</item>
+        <item >August</item>
+        <item >September</item>
+        <item >October</item>
+        <item >November</item>
+        <item >December</item>
+    </string-array>
+
+    <string-array name="lunar_month">
+        <item>正月</item>
+        <item>二月</item>
+        <item>三月</item>
+        <item>四月</item>
+        <item>五月</item>
+        <item>六月</item>
+        <item>七月</item>
+        <item>八月</item>
+        <item>九月</item>
+        <item>十月</item>
+        <item>冬月</item>
+        <item>腊月</item>
+    </string-array>
+    <string-array name="lunar_day">
+        <item>初一</item>
+        <item>初二</item>
+        <item>初三</item>
+        <item>初四</item>
+        <item>初五</item>
+        <item>初六</item>
+        <item>初七</item>
+        <item>初八</item>
+        <item>初九</item>
+        <item>初十</item>
+        <item>十一</item>
+        <item>十二</item>
+        <item>十三</item>
+        <item>十四</item>
+        <item>十五</item>
+        <item>十六</item>
+        <item>十七</item>
+        <item>十八</item>
+        <item>十九</item>
+        <item>二十</item>
+        <item>廿一</item>
+        <item>廿二</item>
+        <item>廿三</item>
+        <item>廿四</item>
+        <item>廿五</item>
+        <item>廿六</item>
+        <item>廿七</item>
+        <item>廿八</item>
+        <item>廿九</item>
+        <item>卅</item>
+    </string-array>
+    <string-array name="animals_year">
+        <item>鼠</item>
+        <item>牛</item>
+        <item>虎</item>
+        <item>兔</item>
+        <item>龙</item>
+        <item>蛇</item>
+        <item>马</item>
+        <item>羊</item>
+        <item>猴</item>
+        <item>鸡</item>
+        <item>狗</item>
+        <item>猪</item>
+    </string-array>
+    <string-array name="gan">
+        <item>甲</item>
+        <item>乙</item>
+        <item>丙</item>
+        <item>丁</item>
+        <item>戊</item>
+        <item>己</item>
+        <item>庚</item>
+        <item>辛</item>
+        <item>壬</item>
+        <item>癸</item>
+    </string-array>
+    <string-array name="zhi">
+        <item>子</item>
+        <item>丑</item>
+        <item>寅</item>
+        <item>卯</item>
+        <item>辰</item>
+        <item>巳</item>
+        <item>午</item>
+        <item>未</item>
+        <item>申</item>
+        <item>酉</item>
+        <item>戌</item>
+        <item>亥</item>
+    </string-array>
+    <string-array name="week">
+        <item>星期日</item>
+        <item>星期一</item>
+        <item>星期二</item>
+        <item>星期三</item>
+        <item>星期四</item>
+        <item>星期五</item>
+        <item>星期六</item>
+    </string-array>
+    <string-array name="lunar_holiday">
+        <item>0101 春节</item>
+        <item>0115 元宵</item>
+        <item>0505 端午</item>
+        <item>0707 七夕</item>
+        <item>0715 中元</item>
+        <item>0815 中秋</item>
+        <item>0909 重阳</item>
+        <item>1208 腊八</item>
+        <item>1224 小年</item>
+        <item>0100 除夕</item>
+    </string-array>
+    <string-array name="solar_holiday">
+        <item>0101 元旦</item>
+        <item>0214 情人</item>
+        <item>0308 妇女</item>
+        <item>0312 植树</item>
+        <item>0315 消费者权益日</item>
+        <item>0401 愚人</item>
+        <item>0501 劳动</item>
+        <item>0504 青年</item>
+        <item>0512 护士</item>
+        <item>0601 儿童</item>
+        <item>0701 建党</item>
+        <item>0801 建军</item>
+        <item>0808 父亲</item>
+        <item>0909 毛泽东逝世纪念日</item>
+        <item>0910 教师</item>
+        <item>0928 孔子诞辰</item>
+        <item>1001 国庆</item>
+        <item>1006 老人</item>
+        <item>1024 联合国日</item>
+        <item>1111 光棍</item>
+        <item>1112 孙中山诞辰纪念日</item>
+        <item>1220 澳门回归纪念日</item>
+        <item>1224 平安</item>
+        <item>1225 圣诞</item>
+        <item>1226 毛泽东诞辰纪念日</item>
+    </string-array>
+
+	<string-array name="holiday_2015">
+        <item>0101</item>
+        <item>0102</item>
+        <item>0103</item>
+        <item>0218</item>
+        <item>0219</item>
+        <item>0220</item>
+        <item>0221</item>
+        <item>0222</item>
+        <item>0223</item>
+        <item>0224</item>
+        <item>0404</item>
+        <item>0405</item>
+        <item>0406</item>
+        <item>0501</item>
+        <item>0502</item>
+        <item>0503</item>
+        <item>0620</item>
+        <item>0621</item>
+        <item>0622</item>
+        <item>0926</item>
+        <item>0927</item>
+        <item>1001</item>
+        <item>1002</item>
+        <item>1003</item>
+        <item>1004</item>
+        <item>1005</item>
+        <item>1006</item>
+        <item>1007</item>
+    </string-array>
+    
+    <string-array name="workday_2015">
+        <item>0104</item>
+        <item>0215</item>
+        <item>0228</item>
+    </string-array>
+</resources>
