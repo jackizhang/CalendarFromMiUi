@@ -12,6 +12,7 @@ public class Day {
 	private int mMonth;
 	private int mDay;
 	private LunarDay mLunarDay;
+	private int mDayOfWeek;
 	
 	public Day(int year, int month, int day){
 		mYear = year;
@@ -19,6 +20,7 @@ public class Day {
 		mDay = day;
 		Calendar cal = Calendar.getInstance();
 		cal.set(mYear, mMonth, mDay);
+		mDayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
 		mLunarDay = CalendarUtil.convert(cal);
 	}
 	
@@ -32,6 +34,15 @@ public class Day {
 
 	public int getDay() {
 		return mDay;
+	}
+	
+	public int getIntDayOfWeek(){
+		return mDayOfWeek;
+	}
+	
+	public String getStringDayOfWeek(){
+		String[] dayOfWeek = new String[]{"周日","周一","周二","周三","周四","周五","周六"};
+		return dayOfWeek[mDayOfWeek-1];
 	}
 	
 	public LunarDay getLunarDay(){

@@ -38,7 +38,7 @@ public class LunarDay {
 	public String getStringLunarDay() {
 		Resources res = ResourceManager.getResources();
 		String[] lunarDays = res.getStringArray(R.array.lunar_day);
-		return lunarDays[mLunarDay];
+		return lunarDays[mLunarDay-1];
 	}
 	
 	public int getIntLunarMonth(){

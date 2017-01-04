@@ -28,6 +28,14 @@ public class Month {
 		}
 	}
 	
+	public int getYear(){
+		return mYear;
+	}
+	
+	public int getMonth(){
+		return mMonth;
+	}
+	
 	public List<Day> getDaysOfMonth(){
 		return mDaysOfMonth;
 	}
@@ -52,5 +60,9 @@ public class Month {
 			else
 				return new Month(MAX_YEAR,MIN_MONTH);
 		}
+	}
+	
+	public Day getLastDay(){
+		return mDaysOfMonth.get(mDaysOfMonth.size()-1);
 	}
 }

@@ -13,7 +13,7 @@ import com.jackyzhang.calendar.R;
 
 public class GridPager extends Pager {
 
-	private MyGridAdapter mAdapter = new MyGridAdapter(getContext(),new ArrayList<Day>());
+	private MyGridAdapter mAdapter ;
 	private OnItemClickListener mOnItemClickListener;
 	private GridView mGridView;
 	
@@ -28,6 +28,10 @@ public class GridPager extends Pager {
 	public void setAdapter(MyGridAdapter adapter){
 		mAdapter = adapter;
 		mAdapter.notifyDataSetChanged();
+	}
+	
+	public MyGridAdapter getAdapter(){
+		return mAdapter;
 	}
 	
 	@Override

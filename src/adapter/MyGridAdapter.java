@@ -8,6 +8,7 @@ import java.util.List;
 import com.jackyzhang.calendar.R;
 
 import calendar.Day;
+import calendar.Month;
 import android.content.Context;
 import android.opengl.Visibility;
 import android.util.Log;
@@ -26,24 +27,46 @@ public class MyGridAdapter extends BaseAdapter {
 	private List<Day> mDays = new ArrayList<Day>();
 	private Context mContext;
 	private Day mChoosedDay;
-	private int curYear,curMonth,curDay;
+	private Month mCurMonth;
 	private Calendar cal;
 	
-	public MyGridAdapter(Context context,List<Day> days) {
+	public MyGridAdapter(Context context,Month month,int choseDay) {
 		mContext =context;
 		//today
 		cal = Calendar.getInstance();
 		cal.setTime(new Date());
-		int curYear = cal.get(Calendar.YEAR);
-		int curMonth = cal.get(Calendar.MONTH)+1;
-		int curDay = cal.get(Calendar.DAY_OF_MONTH);
-		Log.i(TAG,"curDay"+curDay);
-		mChoosedDay = new Day(curYear, curMonth, curDay);
-		mDays.addAll(days);
+		mDays.addAll(month.getDaysOfMonth());
+		mCurMonth = month;
+//		mChoosedDay = mCurMonth.getDaysOfMonth().size()>choseDay
+		fillUpDayList(month);
+	}
+
+	
+	//补齐天数
+	private void fillUpDayList(Month month) {
+		//if not started with sunday,add preMonth's days
+		Day firstDay = month.getDaysOfMonth().get(0);
+		int firstDayOfWeek = firstDay.getIntDayOfWeek();
+		Month prevMonth = month.preMonth();
+		int sizeOfMonth = prevMonth.getDaysOfMonth().size();
+		for(int i =1;i<firstDayOfWeek;i++){
+			mDays.add(0,prevMonth.getDaysOfMonth().get(sizeOfMonth-i));
+		}
+		//if not ended with saturday,add nextMonth's days
+		Day endDay = month.getDaysOfMonth().get(month.getDaysOfMonth().size()-1);
+		int endDayOfWeek = endDay.getIntDayOfWeek();
+		Month nextMonth = month.nextMonth();
+		for(int i=0;i<(7-endDayOfWeek);i++){
+			mDays.add(nextMonth.getDaysOfMonth().get(i));
+		}
 	}
 	
-	public void setDays(List<Day> days){
-		mDays = days;
+	
+	public void setMonth(Month month){
+		mCurMonth = month;
+		mDays.clear();
+		mDays.addAll(month.getDaysOfMonth());
+		fillUpDayList(month);
 	}
 	
 	@Override
@@ -64,6 +87,7 @@ public class MyGridAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
+		Log.i(TAG,"getView at position:"+position);
 		ViewHolder mHolder = null;
 		if(convertView == null){
 			mHolder = new ViewHolder();
@@ -80,11 +104,17 @@ public class MyGridAdapter extends BaseAdapter {
 		
 		mHolder.iv_istodo.setVisibility(View.INVISIBLE);
 		mHolder.tv_day_num.setVisibility(View.VISIBLE);
-//		mHolder.tv_day_num.setText(mDays.get(position).getDay());
+		mHolder.tv_day_num.setText(mDays.get(position).getDay()+"");
+//		mHolder.tv_day_num.setText("11");
 		mHolder.tv_day_lunar.setText(mDays.get(position).getLunarDay().getStringLunarDay());
 		Log.i(TAG,"day:"+mDays.get(position).getDay());
 		Log.i(TAG,"lunarDay:"+mDays.get(position).getLunarDay().getStringLunarDay());
 		mHolder.tv_day_lunar.setVisibility(View.VISIBLE);
+		
+		if(mDays.get(position).getMonth() != mCurMonth.getMonth())
+			mHolder.tv_day_num.setTextColor(mContext.getResources().getColor(R.color.text_light_grey));
+		else
+			mHolder.tv_day_num.setTextColor(mContext.getResources().getColor(android.R.color.black));
 		
 		if((mDays.get(position).isToday())){
 			mHolder.tv_day_num.setTextColor(mContext.getResources().getColor(R.color.text_blue_color));
