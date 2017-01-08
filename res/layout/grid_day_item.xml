@@ -5,7 +5,7 @@
     android:layout_height="50dp"
     android:orientation="vertical" 
     android:gravity="center_horizontal"
-    android:background="@drawable/grid_item_blue_background_circle">
+    android:background="@android:color/transparent">
     <ImageView
         android:id="@+id/iv_istodo"
         android:layout_width="3dp"
@@ -18,13 +18,15 @@
         android:layout_weight="1"
         android:textSize="20dp"
         android:gravity="center"
+        android:text="11"
         android:textColor="@android:color/black"/>
 
     <TextView
         android:id="@+id/tv_day_luner"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
-        android:textSize="6dp"
-        android:gravity="center"
-        android:textColor="@color/light_grey"/>
+        android:textSize="10dp"
+        android:gravity="center_horizontal|top"
+        android:text="初一"
+        android:textColor="@color/text_light_grey"/>
 </LinearLayout>

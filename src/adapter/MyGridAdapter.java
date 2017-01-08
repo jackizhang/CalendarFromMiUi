@@ -37,10 +37,15 @@ public class MyGridAdapter extends BaseAdapter {
 		cal.setTime(new Date());
 		mDays.addAll(month.getDaysOfMonth());
 		mCurMonth = month;
-//		mChoosedDay = mCurMonth.getDaysOfMonth().size()>choseDay
+		mChoosedDay = mDays.size()>choseDay ?
+				mDays.get(choseDay-1):month.getLastDay();
 		fillUpDayList(month);
 	}
 
+	
+	public Day getChosedDay(){
+		return mChoosedDay;
+	}
 	
 	//补齐天数
 	private void fillUpDayList(Month month) {
@@ -62,16 +67,17 @@ public class MyGridAdapter extends BaseAdapter {
 	}
 	
 	
-	public void setMonth(Month month){
+	public void setMonth(Month month,int choseDay){
 		mCurMonth = month;
 		mDays.clear();
 		mDays.addAll(month.getDaysOfMonth());
+		mChoosedDay = mCurMonth.getDaysOfMonth().size()>choseDay ?
+				mCurMonth.getDaysOfMonth().get(choseDay-1):mCurMonth.getLastDay();
 		fillUpDayList(month);
 	}
 	
 	@Override
 	public int getCount() {
-		Log.i(TAG,"getCount:"+mDays.size());
 		return mDays.size();
 	}
 
@@ -87,7 +93,6 @@ public class MyGridAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		Log.i(TAG,"getView at position:"+position);
 		ViewHolder mHolder = null;
 		if(convertView == null){
 			mHolder = new ViewHolder();
@@ -105,16 +110,15 @@ public class MyGridAdapter extends BaseAdapter {
 		mHolder.iv_istodo.setVisibility(View.INVISIBLE);
 		mHolder.tv_day_num.setVisibility(View.VISIBLE);
 		mHolder.tv_day_num.setText(mDays.get(position).getDay()+"");
-//		mHolder.tv_day_num.setText("11");
 		mHolder.tv_day_lunar.setText(mDays.get(position).getLunarDay().getStringLunarDay());
-		Log.i(TAG,"day:"+mDays.get(position).getDay());
-		Log.i(TAG,"lunarDay:"+mDays.get(position).getLunarDay().getStringLunarDay());
 		mHolder.tv_day_lunar.setVisibility(View.VISIBLE);
 		
+		//区分当月和其他月份的字体颜色
 		if(mDays.get(position).getMonth() != mCurMonth.getMonth())
 			mHolder.tv_day_num.setTextColor(mContext.getResources().getColor(R.color.text_light_grey));
 		else
 			mHolder.tv_day_num.setTextColor(mContext.getResources().getColor(android.R.color.black));
+		
 		
 		if((mDays.get(position).isToday())){
 			mHolder.tv_day_num.setTextColor(mContext.getResources().getColor(R.color.text_blue_color));
